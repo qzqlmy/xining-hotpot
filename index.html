@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西宁火锅TOP10 | 2026 口碑榜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #E84830;
+  --brand-dark: #B83520;
+  --brand-light: #FF6B53;
+  --gold: #F5A623;
+  --gold-dark: #C47B0A;
+  --silver: #A0A4B8;
+  --bronze: #C4956A;
+  --bg: #0A0A0E;
+  --surface: #14141C;
+  --surface-2: #1C1C26;
+  --surface-3: #242430;
+  --text: #EAEAEE;
+  --text-dim: #8888A0;
+  --border: #2A2A38;
+  --red-glow: rgba(232,72,48,0.15);
+  --gold-glow: rgba(245,166,35,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ====== HERO ====== */
+.hero {
+  position: relative;
+  padding: 80px 24px 100px;
+  text-align: center;
+  background: radial-gradient(ellipse 800px 600px at 50% -20%, var(--red-glow), transparent),
+              radial-gradient(ellipse 600px 400px at 20% 80%, var(--gold-glow), transparent),
+              radial-gradient(ellipse 400px 300px at 80% 60%, rgba(255,107,83,0.06), transparent);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 30 L30 55 L5 30Z' fill='none' stroke='%23ffffff05' stroke-width='1'/%3E%3C/svg%3E") repeat;
+  opacity: 0.5;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 100px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+  margin-bottom: 28px;
+  position: relative;
+}
+.hero-badge::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 12px var(--brand-light);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.6); }
+}
+.hero h1 {
+  font-size: clamp(42px, 7vw, 72px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  position: relative;
+}
+.hero h1 .hl { background: linear-gradient(135deg, var(--brand-light), var(--brand) 50%, var(--brand-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero h1 .sub { display: block; font-size: 0.45em; font-weight: 300; color: var(--text-dim); letter-spacing: 0; margin-top: 8px; -webkit-text-fill-color: currentColor; }
+.hero-decor {
+  display: flex; justify-content: center; gap: 12px; margin: 32px 0 0;
+}
+.hero-decor span {
+  width: 6px; border-radius: 3px; background: var(--brand);
+  animation: bar-wave 1.4s ease-in-out infinite;
+}
+.hero-decor span:nth-child(1) { height: 32px; animation-delay: 0s; }
+.hero-decor span:nth-child(2) { height: 48px; animation-delay: 0.15s; }
+.hero-decor span:nth-child(3) { height: 56px; animation-delay: 0.3s; background: var(--gold); }
+.hero-decor span:nth-child(4) { height: 40px; animation-delay: 0.45s; }
+.hero-decor span:nth-child(5) { height: 28px; animation-delay: 0.6s; }
+@keyframes bar-wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.8); }
+}
+
+/* ====== STATS BAR ====== */
+.stats {
+  display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+  padding: 36px 24px;
+  background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.stat { text-align: center; }
+.stat-val { font-size: 28px; font-weight: 700; color: var(--brand-light); }
+.stat-val.gold { color: var(--gold); }
+.stat-label { font-size: 12px; color: var(--text-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: 1.5px; }
+
+/* ====== MAIN LIST ====== */
+.main {
+  max-width: 980px; margin: 0 auto; padding: 48px 24px 80px;
+}
+.section-title {
+  font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--brand-light); margin-bottom: 32px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ====== CARD ====== */
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+  background: var(--surface);
+  border-radius: 16px;
+  border:1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.card:hover {
+  transform: translateY(-3px);
+  background: var(--surface-2);
+  border-color: #383848;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.card.rank-1:hover { border-color: var(--gold); box-shadow: 0 8px 32px var(--gold-glow); }
+.card.rank-2:hover { border-color: var(--silver); }
+.card.rank-3:hover { border-color: var(--bronze); }
+
+.card-rank {
+  width: 48px; height: 48px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800;
+  background: var(--surface-3); color: var(--text-dim);
+  transition: transform 0.3s;
+}
+.card:hover .card-rank { transform: scale(1.08); }
+.card.rank-1 .card-rank { background: linear-gradient(135deg, #F5A623, #C47B0A); color: #fff; }
+.card.rank-2 .card-rank { background: linear-gradient(135deg, #BBBCC8, #8888A0); color: #fff; }
+.card.rank-3 .card-rank { background: linear-gradient(135deg, #C4956A, #8B5E3C); color: #fff; }
+
+.card-body { min-width: 0; }
+.card-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.card-name { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag {
+  font-size: 11px; padding: 3px 10px; border-radius: 6px;
+  font-weight: 500; letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.tag-type { background: rgba(232,72,48,0.15); color: var(--brand-light); }
+.tag-area { background: rgba(245,166,35,0.12); color: var(--gold); }
+
+.card-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+.rating-num { font-weight: 700; font-size: 16px; color: var(--gold-dark); }
+.rating-count { font-size: 12px; color: var(--text-dim); }
+.price-tag { font-size: 14px; color: var(--text-dim); margin-left: auto; }
+.price-tag strong { color: var(--brand-light); font-size: 16px; }
+
+.card-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; }
+@media (max-width: 600px) { .card-detail { grid-template-columns: 1fr; } }
+.detail-row { display: flex; gap: 8px; font-size: 13px; color: var(--text-dim); }
+.detail-row .icon { flex-shrink: 0; width: 18px; text-align: center; font-size: 12px; }
+.detail-row .val { color: var(--text); }
+.card-desc { margin-top: 12px; font-size: 13px; color: var(--text-dim); line-height: 1.7; padding-top: 12px; border-top: 1px solid var(--border); }
+
+/* ====== EXPAND ====== */
+.card-expand { display: none; }
+.card.open .card-expand { display: block; }
+
+/* ====== FOOTER ====== */
+.footer {
+  text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+.footer a { color: var(--brand-light); text-decoration: none; }
+
+/* ====== FLOATING ====== */
+.float-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  background: radial-gradient(circle 400px at 50% 20%, rgba(232,72,48,0.03), transparent),
+              radial-gradient(circle 300px at 80% 60%, rgba(245,166,35,0.02), transparent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border); }
+</style>
+</head>
+<body>
+<div class="float-bg"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">📍 青海 · 西宁</div>
+  <h1><span class="hl">西宁火锅 TOP10</span><span class="sub">2026 口碑排行榜 · 本地人精选</span></h1>
+  <div class="hero-decor"><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-val gold">4.8</div><div class="stat-label">最高评分</div></div>
+  <div class="stat"><div class="stat-val">10</div><div class="stat-label">精选门店</div></div>
+  <div class="stat"><div class="stat-val">¥62</div><div class="stat-label">人均最低</div></div>
+  <div class="stat"><div class="stat-val gold">4大</div><div class="stat-label">火锅流派</div></div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="section-title">排名榜单</div>
+
+  <!-- #1 -->
+  <article class="card rank-1" onclick="this.classList.toggle('open')">
+    <div class="card-rank">1</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">下杨家青海土火锅</span>
+        <div class="card-tags">
+          <span class="tag tag-type">青海土火锅</span>
+          <span class="tag tag-area">城西区</span>
+          <span class="tag tag-type" style="background:rgba(34,197,94,0.12);color:#22c55e">清真</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.8</span>
+        <span class="rating-count">· 综合高评分</span>
+        <span class="price-tag">人均 <strong>¥68</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">城西区虎台街道西关大街94号远洋天阙状元里一层138号</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">0971-8131113</span></div>
+      </div>
+      <div class="card-desc">老式炭火铜锅，羊肉汤底醇厚，酸菜+粉条+肉丸+腊肉+菌菇层层码放，一锅出的地道青海味。入口鲜香无比，西宁火锅评分天花板。</div>
+    </div>
+  </article>
+
+  <!-- #2 -->
+  <article class="card rank-2" onclick="this.classList.toggle('open')">
+    <div class="card-rank">2</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">贾小巷子涮羊肉</span>
+        <div class="card-tags">
+          <span class="tag tag-type">老北京涮羊肉</span>
+          <span class="tag tag-area">城西区</span>
+          <span class="tag tag-type" style="background:rgba(34,197,94,0.12);color:#22c55e">清真</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.78</span>
+        <span class="rating-count">· 高德2025状元榜</span>
+        <span class="price-tag">人均 <strong>¥80</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">城西区贾小巷5号（近昆仑中路、湟川桥）</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">17834683310</span></div>
+      </div>
+      <div class="card-desc">手工现切青海本地鲜肉，厚切足量，无膻味。胡椒香清汤锅配上现磨坚果麻酱，西宁涮羊肉天花板，高德2025状元榜4.78分登顶。</div>
+    </div>
+  </article>
+
+  <!-- #3 -->
+  <article class="card rank-3" onclick="this.classList.toggle('open')">
+    <div class="card-rank">3</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">清真军邺金富苑肥牛</span>
+        <div class="card-tags">
+          <span class="tag tag-type">清真肥牛火锅</span>
+          <span class="tag tag-area">海湖新区</span>
+          <span class="tag tag-type" style="background:rgba(34,197,94,0.12);color:#22c55e">清真</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-num">4.66</span>
+        <span class="rating-count">· 高德2025状元榜</span>
+        <span class="price-tag">人均 <strong>¥95</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">海湖新区精品店（文汇路商圈）</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">请致电门店确认</span></div>
+      </div>
+      <div class="card-desc">肥牛真材实料，杂菌汤底鲜香醇美。环境安逸舒适，服务细致周到，亲子家庭聚餐首选。本地人公认的肥牛火锅标杆。</div>
+    </div>
+  </article>
+
+  <!-- #4 -->
+  <article class="card" onclick="this.classList.toggle('open')">
+    <div class="card-rank">4</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">陆记源·青海土火锅</span>
+        <div class="card-tags">
+          <span class="tag tag-type">青海土火锅</span>
+          <span class="tag tag-area">城中区</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★<span style="opacity:0.3">★</span></span>
+        <span class="rating-num">4.3</span>
+        <span class="rating-count">· 67条点评</span>
+        <span class="price-tag">人均 <strong>¥62-77</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">城中区饮马街31号（大十字附近，饮马街夜市口）</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">0971-4910881</span></div>
+      </div>
+      <div class="card-desc">西宁老字号人气王！炭火铜锅，酸菜、粉条、带鱼、肉丸、腊肉、菌菇在羊汤里翻滚，荤素搭配，分量十足。吃完逛莫家街，完美一天。</div>
+    </div>
+  </article>
+
+  <!-- #5 -->
+  <article class="card" onclick="this.classList.toggle('open')">
+    <div class="card-rank">5</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">清真恒欣火锅城</span>
+        <div class="card-tags">
+          <span class="tag tag-type">清真干锅火锅</span>
+          <span class="tag tag-area">城东区</span>
+          <span class="tag tag-type" style="background:rgba(34,197,94,0.12);color:#22c55e">清真</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★<span style="opacity:0.3">★</span></span>
+        <span class="rating-num">4.2</span>
+        <span class="rating-count">· 口碑老店</span>
+        <span class="price-tag">人均 <strong>¥70</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">城东区共和路雪峰小区东南（儿童医院北）</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">请致电门店确认</span></div>
+      </div>
+      <div class="card-desc">西宁首家干锅火锅城，很多人从小吃到大的回忆。干锅系列独具特色，是城东区火锅老字号，承载了一代人的味蕾记忆。</div>
+    </div>
+  </article>
+
+  <!-- #6 -->
+  <article class="card" onclick="this.classList.toggle('open')">
+    <div class="card-rank">6</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">清真兰番坊铜锅涮肉</span>
+        <div class="card-tags">
+          <span class="tag tag-type">铜锅涮羊肉</span>
+          <span class="tag tag-area">城东区</span>
+          <span class="tag tag-type" style="background:rgba(34,197,94,0.12);color:#22c55e">清真</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★<span style="opacity:0.3">★</span></span>
+        <span class="rating-num">4.1</span>
+        <span class="rating-count">· 口碑推荐</span>
+        <span class="price-tag">人均 <strong>¥75</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">城东区五一路3号（五一文化宫门口）</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">请致电门店确认</span></div>
+      </div>
+      <div class="card-desc">正宗清真铜锅涮羊肉，青海特色铜锅，羊肉鲜嫩无膻味。传统铜锅+优质羊肉，是东区涮肉爱好者的常驻据点。</div>
+    </div>
+  </article>
+
+  <!-- #7 -->
+  <article class="card" onclick="this.classList.toggle('open')">
+    <div class="card-rank">7</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">蜀鑫鲜鱼火锅</span>
+        <div class="card-tags">
+          <span class="tag tag-type">川味鱼火锅</span>
+          <span class="tag tag-area">城西区</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★<span style="opacity:0.3">★</span></span>
+        <span class="rating-num">4.0</span>
+        <span class="rating-count">· 高分推荐</span>
+        <span class="price-tag">人均 <strong>¥70</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">总店: 城西区胜利路82号 · 浴池店: 城西区交通巷2号（人民公园斜对面2楼）</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">17730938139（胜利路总店）</span></div>
+      </div>
+      <div class="card-desc">现炒锅底+现杀活鱼，梭边鱼加辣超香。吃完鱼肉还能涮其他菜品，一锅两吃。胜利路总店人气最旺，高峰期需排队。</div>
+    </div>
+  </article>
+
+  <!-- #8 -->
+  <article class="card" onclick="this.classList.toggle('open')">
+    <div class="card-rank">8</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">朱光玉火锅馆</span>
+        <div class="card-tags">
+          <span class="tag tag-type">川渝网红火锅</span>
+          <span class="tag tag-area">城西区</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★<span style="opacity:0.3">★</span></span>
+        <span class="rating-num">4.0</span>
+        <span class="rating-count">· 网红热门</span>
+        <span class="price-tag">人均 <strong>¥110</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">力盟店: 城西区五四大街41号力盟步行街8号楼1F · 新华联店: 城西区文汇路15号新华联购物中心F1</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">0971-3616668（力盟） / 0971-5216688（新华联）</span></div>
+      </div>
+      <div class="card-desc">全国连锁川渝网红火锅，千丝土豆、白雪冰汤圆、花生牛轧糖饮品出圈。装修氛围感强，年轻人打卡首选，力盟步行街逛完就涮。</div>
+    </div>
+  </article>
+
+  <!-- #9 -->
+  <article class="card" onclick="this.classList.toggle('open')">
+    <div class="card-rank">9</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">阿串串老火锅</span>
+        <div class="card-tags">
+          <span class="tag tag-type">重庆串串火锅</span>
+          <span class="tag tag-area">多区连锁</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★<span style="opacity:0.3">★</span></span>
+        <span class="rating-num">4.0</span>
+        <span class="rating-count">· 重庆火锅人气榜第1</span>
+        <span class="price-tag">人均 <strong>¥76</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">力盟店: 力盟步行街3号楼2F · 城北店: 西海路51号 · 八一路店: 八一东路100号 · 五矿店: 文博路6号21栋1F</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">0971-8275855（力盟） / 0971-5222256（八一路） / 0971-3622939（五矿）</span></div>
+      </div>
+      <div class="card-desc">西宁重庆火锅打卡人气榜第1名。掌中宝串串、玫瑰牛肉串串、大刀毛肚是必点，锅底地道重庆味，四家分店遍布全城。</div>
+    </div>
+  </article>
+
+  <!-- #10 -->
+  <article class="card" onclick="this.classList.toggle('open')">
+    <div class="card-rank">10</div>
+    <div class="card-body">
+      <div class="card-header">
+        <span class="card-name">西北馋鲜切牛肉自助火锅</span>
+        <div class="card-tags">
+          <span class="tag tag-type">鲜切牛肉自助</span>
+          <span class="tag tag-area">城西区</span>
+        </div>
+      </div>
+      <div class="card-rating">
+        <span class="stars">★★★★<span style="opacity:0.3">★</span></span>
+        <span class="rating-num">3.9</span>
+        <span class="rating-count">· 性价比之选</span>
+        <span class="price-tag">人均 <strong>¥69</strong></span>
+      </div>
+      <div class="card-detail">
+        <div class="detail-row"><span class="icon">📍</span><span class="val">城西区力盟步行街（力盟商业巷内）</span></div>
+        <div class="detail-row"><span class="icon">📞</span><span class="val">请致电门店确认</span></div>
+      </div>
+      <div class="card-desc">宵夜套餐69元/位畅吃！鲜切牛肉+小吃+饮料+啤酒+雪糕不限量。性价比之王，牛肉新鲜现切，学生党和夜宵党最爱。</div>
+    </div>
+  </article>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>数据来源：高德2025状元榜 · 携程美食林 · 大众点评 · 穷游网 | 信息仅供参考，请以实际到店为准</p>
+  <p style="margin-top:8px">Made with ❤️ for 西宁 | <a href="https://www.dianping.com/search/keyword/32/0_%E7%81%AB%E9%94%85">大众点评查看更多</a></p>
+</footer>
+
+<script>
+// Confetti on page load
+(function(){
+  const colors = ['#E84830','#F5A623','#FF6B53','#C47B0A','#FFD700','#fff'];
+  for(let i=0;i<30;i++){
+    const dot = document.createElement('div');
+    dot.style.cssText = `
+      position:fixed;z-index:999;pointer-events:none;
+      width:${4+Math.random()*8}px;height:${4+Math.random()*8}px;
+      border-radius:50%;background:${colors[Math.floor(Math.random()*colors.length)]};
+      left:${Math.random()*100}vw;top:-20px;
+      animation:fall-${i} ${2+Math.random()*3}s ease-in ${Math.random()*2}s forwards;
+    `;
+    const kf = `
+      @keyframes fall-${i} {
+        0%{opacity:1;transform:translateY(0) rotate(0deg)}
+        100%{opacity:0;transform:translateY(${80+Math.random()*20}vh) rotate(${360+Math.random()*720}deg)}
+      }`;
+    document.head.insertAdjacentHTML('beforeend',`<style>${kf}</style>`);
+    document.body.appendChild(dot);
+    setTimeout(()=>dot.remove(),5000);
+  }
+})();
+</script>
+</body>
+</html>

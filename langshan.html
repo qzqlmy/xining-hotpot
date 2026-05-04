@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青海西宁「浪山」精选指南 | 10篇精选笔记</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFF8F3;
+  --card: #fff;
+  --text: #2D2D2D;
+  --text-secondary: #6B6B6B;
+  --text-muted: #999;
+  --accent: #FF5A5F;
+  --accent-light: #FFE4E5;
+  --green: #2E7D32;
+  --green-light: #E8F5E9;
+  --orange: #EF6C00;
+  --orange-light: #FFF3E0;
+  --blue: #1565C0;
+  --blue-light: #E3F2FD;
+  --border: #F0F0F0;
+  --shadow: 0 2px 16px rgba(0,0,0,0.06);
+  --shadow-hover: 0 6px 28px rgba(0,0,0,0.10);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ====== HERO ====== */
+.hero {
+  position: relative;
+  padding: 64px 24px 72px;
+  text-align: center;
+  background: linear-gradient(160deg, #E8F5E9 0%, #FFF3E0 40%, #FFE4E5 100%);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 15 L55 35 L50 35 L65 55 L30 55 L45 35 L40 35Z' fill='%2300000006'/%3E%3C/svg%3E") repeat;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 20px;
+  position: relative;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.25;
+  position: relative;
+}
+.hero h1 .hl {
+  background: linear-gradient(135deg, #FF5A5F, #EF6C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  position: relative;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 32px; margin-top: 28px; flex-wrap: wrap; position: relative;
+}
+.hs-item { text-align: center; }
+.hs-num { font-size: 26px; font-weight: 700; color: var(--green); }
+.hs-num.red { color: var(--accent); }
+.hs-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+/* ====== MAIN ====== */
+.main { max-width: 720px; margin: 0 auto; padding: 32px 20px 60px; }
+
+/* ====== NOTE CARD ====== */
+.note {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.note:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.note::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.note:nth-child(1)::after, .note:nth-child(5)::after, .note:nth-child(9)::after { background: linear-gradient(90deg, #FF5A5F, #FF8A80); }
+.note:nth-child(2)::after, .note:nth-child(6)::after, .note:nth-child(10)::after { background: linear-gradient(90deg, #43A047, #81C784); }
+.note:nth-child(3)::after, .note:nth-child(7)::after { background: linear-gradient(90deg, #EF6C00, #FFB74D); }
+.note:nth-child(4)::after, .note:nth-child(8)::after { background: linear-gradient(90deg, #1565C0, #64B5F6); }
+
+.note-header {
+  display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px;
+}
+.note-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  color: #fff; font-weight: 700;
+}
+.av-1,.av-5,.av-9 { background: linear-gradient(135deg, #FF5A5F, #FF8A80); }
+.av-2,.av-6,.av-10 { background: linear-gradient(135deg, #43A047, #81C784); }
+.av-3,.av-7 { background: linear-gradient(135deg, #EF6C00, #FFB74D); }
+.av-4,.av-8 { background: linear-gradient(135deg, #1565C0, #64B5F6); }
+
+.note-author {
+  font-size: 15px; font-weight: 600;
+}
+.note-time { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.note-tag {
+  display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 100px;
+  margin-left: auto; font-weight: 500; margin-top: 4px;
+}
+.tag-hot { background: #FFE4E5; color: #D32F2F; }
+.tag-rec { background: #E8F5E9; color: #2E7D32; }
+.tag-new { background: #FFF3E0; color: #EF6C00; }
+.tag-view { background: #E3F2FD; color: #1565C0; }
+
+.note-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.5; }
+.note-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 14px; }
+
+.note-meta {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  font-size: 13px; color: var(--text-muted);
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.note-meta span { display: flex; align-items: center; gap: 4px; }
+
+.note-tips {
+  font-size: 13px; color: var(--text-secondary);
+  background: #FAFAFA; border-radius: 10px;
+  padding: 12px 14px; line-height: 1.7;
+}
+.note-tips strong { color: var(--accent); }
+
+.note-footer {
+  display: flex; align-items: center; gap: 20px; margin-top: 14px;
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  text-align: center; padding: 40px 20px;
+  font-size: 12px; color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 500px) {
+  .note { padding: 20px 16px; }
+  .note-title { font-size: 16px; }
+  .note-meta { gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">⛰️ 青海方言小课堂</div>
+  <h1>西宁<span class="hl">「浪山」</span>指南</h1>
+  <p>"浪"= 玩 · "山"= 有山有水的地方 · 浪山 = 夏天去野外露营野炊</p>
+  <div class="hero-stats">
+    <div class="hs-item"><div class="hs-num red">10</div><div class="hs-label">精选笔记</div></div>
+    <div class="hs-item"><div class="hs-num">60+</div><div class="hs-label">湟源浪山营地</div></div>
+    <div class="hs-item"><div class="hs-num">6-9月</div><div class="hs-label">最佳浪山季</div></div>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- ====== Note 1 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-1">山</div>
+    <div>
+      <div class="note-author">浪山达人·阿青</div>
+      <div class="note-time">2025-07-12 · 湟源县</div>
+    </div>
+    <span class="note-tag tag-hot">🔥 热门</span>
+  </div>
+  <div class="note-title">🌿 浪山浪水浪湟源！每年夏天必去的马家湾水麦营地</div>
+  <div class="note-desc">
+    湟源绝对是西宁浪山天花板！县政府每年拿出600万专项资金扶持浪山经济，现在规范化营地60多家。最推荐和平乡马家湾的<strong>水麦轻奢露营基地</strong>，上过央视、《三餐四季》也来取过景。帐篷区就在河边，晚上星星超亮✨
+  </div>
+  <div class="note-meta">
+    <span>📍 湟源县和平乡马家湾村</span>
+    <span>🚗 距西宁约50km</span>
+    <span>💰 轻奢帐篷100-300元</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>旺季周末帐篷要提前3天订！推荐自带食材烧烤，营地提供炉具租赁。一定要待到晚上，星空绝了。
+  </div>
+  <div class="note-footer">❤️ 2.3k &nbsp; ⭐ 856 &nbsp; 💬 127</div>
+</article>
+
+<!-- ====== Note 2 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-2">树</div>
+    <div>
+      <div class="note-author">户外玩家·小林</div>
+      <div class="note-time">2025-06-25 · 大通县</div>
+    </div>
+    <span class="note-tag tag-rec">⭐ 推荐</span>
+  </div>
+  <div class="note-title">🏕️ 大通斜沟！树蛙部落+围炉煮茶+星空瑜伽</div>
+  <div class="note-desc">
+    大通今年推出了"相约四季·浪山浪水浪大通"，6条高原避暑线路！我最爱<strong>鹞子沟的树蛙部落</strong>——在原始林区里搭帐篷，早上瑜伽，下午围炉煮茶，晚上观星。边麻沟花海也在旁边，现在正是花期🌸
+  </div>
+  <div class="note-meta">
+    <span>📍 大通县斜沟乡·鹞子沟</span>
+    <span>🚗 距西宁约47km</span>
+    <span>💰 树蛙部落300-600元</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>大通比西宁凉快5-8°C，带件薄羽绒都不夸张！边麻沟花海+鹞子沟可以一天搞定，早上花海下午森林。
+  </div>
+  <div class="note-footer">❤️ 1.8k &nbsp; ⭐ 632 &nbsp; 💬 94</div>
+</article>
+
+<!-- ====== Note 3 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-3">火</div>
+    <div>
+      <div class="note-author">西宁吃货·大壮</div>
+      <div class="note-time">2025-07-03 · 互助县</div>
+    </div>
+    <span class="note-tag tag-hot">🔥 热门</span>
+  </div>
+  <div class="note-title">🍖 开着敞篷带着锅，背着洋芋哼着歌——互助油嘴湾浪山记</div>
+  <div class="note-desc">
+    这才是青海浪山的正确打开方式！互助油嘴湾AAAA景区，花海+夜市+篝火晚会一条龙。我们自带了一只羊（对，整只），在河边现宰现煮，手抓羊肉+尕面片+焜锅馍馍，配一瓶青稞酒🍺 晚上篝火晚会跳舞到12点！
+  </div>
+  <div class="note-meta">
+    <span>📍 互助县油嘴湾花海</span>
+    <span>🚗 距西宁约42km</span>
+    <span>💰 门票30元 自带食材</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>油嘴湾周末有篝火晚会和夜市！自带羊肉的话提前联系当地人帮忙处理（通常收费50-100元）。记得带蓝牙音箱！
+  </div>
+  <div class="note-footer">❤️ 3.1k &nbsp; ⭐ 1.2k &nbsp; 💬 203</div>
+</article>
+
+<!-- ====== Note 4 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-4">星</div>
+    <div>
+      <div class="note-author">露营萌新·小末</div>
+      <div class="note-time">2025-06-18 · 城北区</div>
+    </div>
+    <span class="note-tag tag-new">🆕 新开</span>
+  </div>
+  <div class="note-title">🏙️ 不出西宁也能浪！城北新开的河湟趣野营地</div>
+  <div class="note-desc">
+    懒人福音！就在城北区马坊街道三其村，<strong>离市区20分钟</strong>。2025年7月刚开的，10余亩，天幕帐篷都有，烧烤设备齐全，还有儿童游乐区。适合带娃的家庭或者下班后想出来透气的打工人😂 不用跑远路也能体验浪山的快乐！
+  </div>
+  <div class="note-meta">
+    <span>📍 城北区马坊街道三其村</span>
+    <span>🚗 距市区20分钟</span>
+    <span>💰 烧烤位50-100元</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>新开业人还不多，不用预订！傍晚去最舒服，吃完烧烤看日落。停车场很大，免费停车。
+  </div>
+  <div class="note-footer">❤️ 956 &nbsp; ⭐ 312 &nbsp; 💬 58</div>
+</article>
+
+<!-- ====== Note 5 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-5">车</div>
+    <div>
+      <div class="note-author">摩旅达人·老张</div>
+      <div class="note-time">2025-08-05 · 扎碾公路</div>
+    </div>
+    <span class="note-tag tag-hot">🔥 热门</span>
+  </div>
+  <div class="note-title">🏍️ 扎碾公路浪山！这才是青海最美自驾路线</div>
+  <div class="note-desc">
+    推荐一条神仙路线——<strong>扎碾公路</strong>！从西宁出发，经鹿角寺→引胜隧道→引胜村→Omega隧道→扎龙沟，沿途全是浪山好地方。河滩边随处可以停车搭帐篷，很多西瓜摊🍉，买一颗冰在河水里，绝了！路两边植被茂密，完全不输瑞士。
+  </div>
+  <div class="note-meta">
+    <span>📍 扎碾公路·扎龙沟方向</span>
+    <span>🚗 全程约3小时车程</span>
+    <span>💰 野滩免费</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>扎碾公路最美的季节是6-8月，建议走完全程到扎龙沟。沿路公厕少，注意规划。野滩浪山注意带走垃圾！
+  </div>
+  <div class="note-footer">❤️ 4.5k &nbsp; ⭐ 1.8k &nbsp; 💬 341</div>
+</article>
+
+<!-- ====== Note 6 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-6">拍</div>
+    <div>
+      <div class="note-author">摄影博主·Nana</div>
+      <div class="note-time">2025-07-20 · 群加森林公园</div>
+    </div>
+    <span class="note-tag tag-rec">⭐ 推荐</span>
+  </div>
+  <div class="note-title">📸 群加森林公园！朋友圈以为我去了新疆</div>
+  <div class="note-desc">
+    群加真的太出片了！<strong>云屿山居（原野Camp）</strong>的星空仓一定要住——双人床+干湿分离卫浴+阳台，躺在床上就能看星星。大厨的凉面和火锅超好吃，蘸料一绝。傍晚时分光线绝美，随手一拍就是《我的阿勒泰》既视感📷
+  </div>
+  <div class="note-meta">
+    <span>📍 群加国家森林公园</span>
+    <span>🚗 距西宁约75km</span>
+    <span>💰 星空仓400-800元</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>星空仓只有几间，至少提前一周预订！营地有小超市，装备忘带了可以买。中午到达气温最舒适，带厚衣服！
+  </div>
+  <div class="note-footer">❤️ 5.2k &nbsp; ⭐ 2.1k &nbsp; 💬 486</div>
+</article>
+
+<!-- ====== Note 7 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-7">绿</div>
+    <div>
+      <div class="note-author">亲子玩家·沐沐妈</div>
+      <div class="note-time">2025-07-28 · 湟源东峡</div>
+    </div>
+    <span class="note-tag tag-new">🆕 特色</span>
+  </div>
+  <div class="note-title">🚂 住进绿皮火车！湟源车站露营基地遛娃攻略</div>
+  <div class="note-desc">
+    东峡乡石崖庄村的<strong>车站露营基地</strong>太适合遛娃了！房车改造的绿皮火车住宿，小朋友兴奋到飞起。营地种了山楂、海棠等50多种植物，可以带娃认植物。还能垂钓划船，一整天不重样。火车车厢改的餐厅也超有feel～
+  </div>
+  <div class="note-meta">
+    <span>📍 湟源县东峡乡石崖庄村</span>
+    <span>🚗 距西宁约55km</span>
+    <span>💰 火车房300-500元</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>火车房周末超抢手，建议提前一周订。营地有餐厅不用自己带饭。带娃建议住一晚，晚上有篝火和露天电影。
+  </div>
+  <div class="note-footer">❤️ 2.7k &nbsp; ⭐ 980 &nbsp; 💬 162</div>
+</article>
+
+<!-- ====== Note 8 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-8">水</div>
+    <div>
+      <div class="note-author">本地玩家·阿浩</div>
+      <div class="note-time">2025-06-08 · 贵德</div>
+    </div>
+    <span class="note-tag tag-view">🌊 玩水</span>
+  </div>
+  <div class="note-title">🌊 天下黄河贵德清！黄河边浪山是一种什么体验</div>
+  <div class="note-desc">
+    谁说浪山只能去山里？<strong>贵德黄河边</strong>才是隐藏玩法！黄河在贵德段是清的（亲眼看到才信），河滩上搭帐篷，脚泡在黄河水里吃西瓜，别的地方体验不到。4月还能看梨花，夏天就是天然水上乐园。晚上烤串+冰啤酒，爽到飞起🍻
+  </div>
+  <div class="note-meta">
+    <span>📍 贵德县黄河边</span>
+    <span>🚗 距西宁约90km</span>
+    <span>💰 野滩免费</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>贵德比西宁热，注意防晒！建议走拉脊山方向去，沿途风景绝美。黄河边玩水注意安全，带拖鞋！
+  </div>
+  <div class="note-footer">❤️ 1.6k &nbsp; ⭐ 592 &nbsp; 💬 87</div>
+</article>
+
+<!-- ====== Note 9 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-9">花</div>
+    <div>
+      <div class="note-author">旅行博主·小野</div>
+      <div class="note-time">2025-07-15 · 平安驿</div>
+    </div>
+    <span class="note-tag tag-hot">🔥 热门</span>
+  </div>
+  <div class="note-title">🏯 浪山浪到平安驿！河湟民俗+露营地一日游</div>
+  <div class="note-desc">
+    海东平安驿今年太火了，上半年接待了<strong>160万人次</strong>！河湟民俗文化体验地+浪山露营可以一起安排——上午逛平安驿老街，吃酸奶、酿皮、甜醅、炕锅洋芋，下午去旁边的浪山营地烧烤。青海土火锅也可以在营地吃到，人均60吃到撑🍲
+  </div>
+  <div class="note-meta">
+    <span>📍 海东市平安驿</span>
+    <span>🚗 距西宁约35km</span>
+    <span>💰 营地烧烤+美食约100元</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>平安驿周末有非遗市集，可以买到手工青绣和盘绣。浪山+民俗一日游，非常适合外地来的朋友体验青海文化！
+  </div>
+  <div class="note-footer">❤️ 1.9k &nbsp; ⭐ 756 &nbsp; 💬 128</div>
+</article>
+
+<!-- ====== Note 10 ====== -->
+<article class="note">
+  <div class="note-header">
+    <div class="note-avatar av-10">心</div>
+    <div>
+      <div class="note-author">打工人·小周</div>
+      <div class="note-time">2025-08-01 · 昆仑大道</div>
+    </div>
+    <span class="note-tag tag-rec">⭐ 懒人</span>
+  </div>
+  <div class="note-title">🆓 0元浪山！西宁人私藏的昆仑大道网红露营带</div>
+  <div class="note-desc">
+    西宁打工人最爱的"网红大道"——<strong>昆仑大道西段</strong>！不用预约不用花钱，下班后约上三五好友，带个天幕和烧烤架就去了。这条路上周末全是浪山的人，自发形成了露营带。旁边有公厕、有小卖部，超方便。最地道最接地气的浪山方式👍
+  </div>
+  <div class="note-meta">
+    <span>📍 昆仑大道西段</span>
+    <span>🚗 市区出发15-20分钟</span>
+    <span>💰 0元 自带装备</span>
+  </div>
+  <div class="note-tips">
+    💡 <strong>小贴士：</strong>周末人多但氛围好，像大型社区聚会。建议下午4点后去占位，带个小音箱放歌。垃圾一定带走，保护浪山环境人人有责♻️
+  </div>
+  <div class="note-footer">❤️ 3.8k &nbsp; ⭐ 1.5k &nbsp; 💬 312</div>
+</article>
+
+</main>
+
+<footer class="footer">
+  <p>🏔️ 内容综合自小红书、抖音、携程、青海新闻网等公开渠道 | 浪山季：每年6月-9月</p>
+  <p style="margin-top:6px">"青海人的夏天，没有浪山是不完整的" —— 青海民间语录</p>
+</footer>
+
+</body>
+</html>
